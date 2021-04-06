@@ -1,0 +1,25 @@
+.product_card {
+  display: flex;
+  flex-direction: column;
+  max-width: 450px;
+  margin: auto;
+}
+
+.price {
+  color: orangered;
+}
+
+.product_card img {
+  max-width: 300px;
+  align-self: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.product_card:hover img {
+  transform: scale(1.1);
+}
+
+.description {
+  max-width: 400px;
+  line-height: 1.4rem;
+}
