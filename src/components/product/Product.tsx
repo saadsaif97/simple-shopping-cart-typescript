@@ -4,6 +4,7 @@ import { addItem } from '../../features/cart/cartSlice'
 import { useNavigate, useParams } from 'react-router'
 import { product } from '../products/Products'
 import classes from './product.module.css'
+import ProductSkeleton from '../products/ProductSkeleton'
 
 const Product = () => {
   const { id } = useParams()
@@ -21,13 +22,17 @@ const Product = () => {
   }, [id])
 
   if (!product) {
-    return <h4>Loading...{id}</h4>
+    return (
+      <div style={{ paddingTop: '50px', maxWidth: '450px', margin: '0 auto' }}>
+        <ProductSkeleton />
+      </div>
+    )
   }
 
   return (
     <div className={classes.product_card}>
-      <h3>{product.title}</h3>
       <img src={product.image} alt={product.title} />
+      <h3>{product.title}</h3>
       <h3 className={classes.price}>Price: ${product.price}</h3>
       <p>{product.description}</p>
       <div className='product-buttons-div'>
